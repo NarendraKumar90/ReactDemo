@@ -1,0 +1,8 @@
+.grid-card {
+  transition: 0.3s;
+}
+
+.grid-card:hover {
+  background-color: #d4edda; /* light green */
+  transform: scale(1.05);
+}

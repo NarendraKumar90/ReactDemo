@@ -1,0 +1,79 @@
+/* 🎯 CAMERA */
+.apa-wrapper {
+  perspective: 2200px;
+}
+
+/* 🧱 CARD BASE */
+.apa-card {
+  position: relative;
+  transition: all 0.5s ease;
+  transform-style: preserve-3d;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+/* 🚀 FULL CENTER POP (ALL CONTENT INCLUDED) */
+.apa-wrapper:hover .apa-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  transform:
+    translate(-50%, -50%)   /* center */
+    scale(1.15);            /* zoom */
+
+  width: 520px;             /* 👈 FIX WIDTH */
+  height: 260px;            /* 👈 FIX HEIGHT */
+
+  z-index: 9999;
+
+  box-shadow:
+    0 80px 160px rgba(0,0,0,0.5),
+    0 40px 80px rgba(0,0,0,0.3);
+}
+
+/* ✨ GLASS */
+.glass {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  z-index: 1;
+}
+
+/* ✨ SHINE */
+.shine {
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: 0.8s;
+  z-index: 2;
+}
+
+.apa-card:hover .shine {
+  left: 130%;
+}
+
+/* 🧠 TEXT FIX */
+.apa-card h2,
+.apa-card h6,
+.apa-card small {
+  position: relative;
+  z-index: 5;
+  color: #000;
+}
+
+/* 🧩 PREVENT TEXT SHIFT */
+.apa-card * {
+  transform: none !important;
+}

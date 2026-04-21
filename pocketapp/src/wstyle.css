@@ -1,0 +1,65 @@
+.card-box {
+  height: 230px;
+  border-radius: 16px;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(255,255,255,0.25),
+    transparent 60%
+  );
+
+  opacity: 0;
+}
+
+.card-box:hover::before {
+  opacity: 1;
+}
+
+.card-box * {
+  transform: translateZ(40px);
+}
+
+.card-ui {
+  height: 100%;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.green {
+  background: linear-gradient(135deg,#b7e4c7,#52b788);
+}
+
+.white {
+  background: linear-gradient(135deg,#b7e4c7,#c0d1c9);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.floating-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  width: 520px;
+  height: 260px;
+  border-radius: 16px;
+
+  box-shadow:
+    0 100px 200px rgba(0,0,0,0.6),
+    0 50px 100px rgba(0,0,0,0.4);
+}

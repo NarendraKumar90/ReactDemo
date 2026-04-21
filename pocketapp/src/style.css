@@ -1,0 +1,97 @@
+/* 🎯 PERSPECTIVE */
+.card-box {
+  height: 230px;
+  border-radius: 16px;
+
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* 💡 LIGHT */
+.card-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(255,255,255,0.25),
+    transparent 60%
+  );
+
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.card-box:hover::before {
+  opacity: 1;
+}
+
+/* 🧠 DEPTH */
+.card-box h2,
+.card-box h3,
+.card-box h6,
+.card-box small,
+.card-box button {
+  transform: translateZ(40px);
+}
+
+/* 🎴 UI */
+.card-ui {
+  height: 100%;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.dark {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+}
+
+.light {
+  background: #fff;
+}
+
+/* 🚀 OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* 🚀 CENTER CARD */
+.floating-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%) scale(1.2);
+
+  width: 520px;
+  height: 260px;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 100px 200px rgba(0,0,0,0.6),
+    0 50px 100px rgba(0,0,0,0.4);
+
+  animation: popup 0.3s ease;
+}
+
+/* 🎬 ANIMATION */
+@keyframes popup {
+  from {
+    transform: translate(-50%, -40%) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+}
